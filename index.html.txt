@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>满屏祝福轰炸机</title>
+    <style>
+        body { font-family: Arial; text-align: center; background-color: #111; color: #fff; padding: 50px; }
+        h1 { color: #FFD700; }
+        input { padding: 10px; font-size: 16px; width: 80px; text-align: center;}
+        button { padding: 10px 20px; font-size: 16px; cursor: pointer; background: #4CAF50; border: none; color: white; border-radius: 5px;}
+        button:hover { background: #45a049; }
+        #blessing-box { margin-top: 30px; font-size: 24px; color: #FFD700; height: 400px; overflow-y: auto; }
+    </style>
+</head>
+<body>
+    <h1>🚀 满屏祝福轰炸机 🚀</h1>
+    <p>输入次数，点击按钮开始轰炸！</p>
+    <input type="number" id="countInput" value="50">
+    <button onclick="startBomber()">启动祝福！</button>
+    <div id="blessing-box"></div>
+
+    <script>
+        function startBomber() {
+            let count = parseInt(document.getElementById('countInput').value);
+            let box = document.getElementById('blessing-box');
+            box.innerHTML = ""; 
+            let i = 0;
+            let interval = setInterval(() => {
+                if (i < count) {
+                    box.innerHTML += "✨ Happy ！！！ ✨<br>";
+                    box.scrollTop = box.scrollHeight; 
+                    i++;
+                } else {
+                    clearInterval(interval);
+                    box.innerHTML += "<br>🎊 轰炸结束！祝你天天开心！";
+                }
+            }, 50); 
+        }
+    </script>
+</body>
+</html>
